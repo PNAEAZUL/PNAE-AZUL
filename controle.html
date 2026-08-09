@@ -1,65 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Painel de Controle PNAE AZUL</title>
-        <link rel="stylesheet" href="style.css">
-        </head>
-        <body class="body-cco">
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Painel de Controle PNAE - AZUL</title>
+                <link rel="stylesheet" href="style.css">
+                </head>
+                <body>
+                    <div class="container-painel">
+                            <header class="header-painel">
+                                        <h1>Painel de Controle em Tempo Real</h1>
+                                                    <p>Sincronização automática de atendimentos PNAE</p>
+                                                            </header>
 
-          <header class="cco-header">
-              <h1>Painel de Controle PNAE <span>AZUL</span></h1>
-                  <span class="live-indicator">• Atendimentos Agora</span>
-                    </header>
+                                                                    <main id="listaAtivos" class="grid-atendimentos">
+                                                                                <p class="vazio">Carregando atendimentos do banco de dados...</p>
+                                                                                        </main>
 
-                      <main class="cco-container">
-                          
-                              <!-- CARDS DE MÉTRICAS -->
-                                  <section class="dash-cards">
-                                        <div class="metric-card">
-                                                <h3>Serviços em Andamento</h3>
-                                                        <div class="number" id="countAndamento">0</div>
-                                                              </div>
-                                                                    <div class="metric-card">
-                                                                            <h3>Concluídos</h3>
-                                                                                    <div class="number" id="countConcluidos">0</div>
-                                                                                          </div>
-                                                                                                <div class="metric-card">
-                                                                                                        <h3>Tempo Médio Geral</h3>
-                                                                                                                <div class="number" id="tempoMedioGeral">0 min</div>
-                                                                                                                      </div>
-                                                                                                                          </section>
+                                                                                                <div class="link-voltar">
+                                                                                                            <a href="index.html">← Voltar para o Formulário de Registro</a>
+                                                                                                                    </div>
+                                                                                                                        </div>
 
-                                                                                                                              <!-- TABELA COMPLETA -->
-                                                                                                                                  <section class="table-container">
-                                                                                                                                        <h2>Monitoramento Operacional de Atendimentos</h2>
-                                                                                                                                              <div class="table-responsive">
-                                                                                                                                                      <table class="cco-table">
-                                                                                                                                                                <thead>
-                                                                                                                                                                            <tr>
-                                                                                                                                                                                          <th>Voo</th>
-                                                                                                                                                                                                        <th>Cliente</th>
-                                                                                                                                                                                                                      <th>Tipo</th>
-                                                                                                                                                                                                                                    <th>Trajeto (De ➔ Para)</th>
-                                                                                                                                                                                                                                                  <th>Agente</th>
-                                                                                                                                                                                                                                                                <th>Status</th>
-                                                                                                                                                                                                                                                                              <th>Início</th>
-                                                                                                                                                                                                                                                                                            <th>Fim</th>
-                                                                                                                                                                                                                                                                                                          <th>Duração</th>
-                                                                                                                                                                                                                                                                                                                        <th>Observações</th>
-                                                                                                                                                                                                                                                                                                                                    </tr>
-                                                                                                                                                                                                                                                                                                                                              </thead>
-                                                                                                                                                                                                                                                                                                                                                        <tbody id="tabelaCorpo">
-                                                                                                                                                                                                                                                                                                                                                                    <!-- Preenchido via app.js -->
-                                                                                                                                                                                                                                                                                                                                                                              </tbody>
-                                                                                                                                                                                                                                                                                                                                                                                      </table>
-                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                </section>
-
-                                                                                                                                                                                                                                                                                                                                                                                                  </main>
-
-                                                                                                                                                                                                                                                                                                                                                                                                    <script src="app.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                    </body>
-                                                                                                                                                                                                                                                                                                                                                                                                    </html>
-                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                            <!-- BIBLIOTECA DO SUPABASE E SCRIPT PRINCIPAL -->
+                                                                                                                                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+                                                                                                                                    <script src="app.js"></script>
+                                                                                                                                    </body>
+                                                                                                                                    </html>
+                                                                                                                                    

@@ -1,77 +1,127 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    box-sizing: border-box; /* Impede que os campos ultrapassem a tela */
+        margin: 0;
+            padding: 0;
+            }
 
-/* =========================================================
-   1. ESTILOS DO AGENTE (PRIORIDADES AZUL)
-      ========================================================= */
-      body.body-agente { background-color: #f0f4f8; color: #1e293b; }
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background-color: #f4f6f9;
+                        color: #333;
+                            padding: 15px;
+                                display: flex;
+                                    justify-content: center;
+                                    }
 
-      .app-header { background: #001e50; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-      .logo-area h1 { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.5px; }
-      .logo-area h1 span { color: #00a3e0; }
-      .sub-title { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; display: block; }
-      .agent-badge { background: #00a3e0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; color: #001e50; }
+                                    .container {
+                                        width: 100%;
+                                            max-width: 600px; /* Largura ideal para computador/tablet */
+                                                margin: 0 auto;
+                                                }
 
-      .container { padding: 15px; display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
+                                                /* --- CABEÇALHO --- */
+                                                .header {
+                                                    background-color: #002855;
+                                                        color: #fff;
+                                                            padding: 15px;
+                                                                border-radius: 8px;
+                                                                    display: flex;
+                                                                        justify-content: space-between;
+                                                                            align-items: center;
+                                                                                margin-bottom: 20px;
+                                                                                }
 
-      .card-pnae { background: white; border-radius: 12px; padding: 18px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
-      .card-header-title { border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 14px; }
-      .card-header-title h2 { font-size: 1.05rem; color: #001e50; font-weight: 700; }
+                                                                                /* --- CARTÕES DE CONTEÚDO --- */
+                                                                                .card {
+                                                                                    background: #ffffff;
+                                                                                        padding: 20px;
+                                                                                            border-radius: 10px;
+                                                                                                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                                                                                                    margin-bottom: 20px;
+                                                                                                        width: 100%;
+                                                                                                        }
 
-      .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
-      .full-width { grid-column: span 2; }
-      .form-group { display: flex; flex-direction: column; gap: 5px; }
-      .form-group label { font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; }
-      .form-group input { padding: 11px 13px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: border 0.2s; background-color: #f8fafc; }
-      .form-group input:focus { border-color: #00a3e0; background-color: #fff; }
+                                                                                                        /* --- FORMULÁRIO E INPUTS RESPONSIVOS --- */
+                                                                                                        .form-group {
+                                                                                                            margin-bottom: 15px;
+                                                                                                                width: 100%;
+                                                                                                                }
 
-      .btn { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: 800; font-size: 0.95rem; cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s; }
-      .btn-iniciar { background-color: #00c3ff; color: #001e50; }
-      .btn-iniciar:active { background-color: #009ecf; }
-      .btn-finalizar-card { background-color: #10b981; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; margin-top: 10px; width: 100%; }
+                                                                                                                .form-group label {
+                                                                                                                    display: block;
+                                                                                                                        font-weight: bold;
+                                                                                                                            font-size: 0.85rem;
+                                                                                                                                color: #002855;
+                                                                                                                                    margin-bottom: 5px;
+                                                                                                                                        text-transform: uppercase;
+                                                                                                                                        }
 
-      .lista-ativos-container { display: flex; flex-direction: column; gap: 10px; }
-      .empty-msg { font-size: 0.85rem; color: #94a3b8; text-align: center; padding: 10px 0; }
-      .item-ativo-card { background: #f8fafc; border-left: 4px solid #00a3e0; border-radius: 8px; padding: 14px; border: 1px solid #e2e8f0; border-left-width: 5px; }
-      .item-ativo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-      .item-ativo-nome { font-size: 1.05rem; font-weight: 700; color: #0f172a; }
-      .item-ativo-tag { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
-      .item-ativo-rota { font-size: 0.9rem; color: #334155; margin-bottom: 6px; }
-      .item-ativo-hora { font-size: 0.8rem; color: #64748b; }
+                                                                                                                                        /* Garante que NENHUM campo estoure a tela */
+                                                                                                                                        input[type="text"],
+                                                                                                                                        select,
+                                                                                                                                        textarea {
+                                                                                                                                            width: 100% !important;
+                                                                                                                                                max-width: 100% !important;
+                                                                                                                                                    padding: 12px;
+                                                                                                                                                        border: 1px solid #ccc;
+                                                                                                                                                            border-radius: 6px;
+                                                                                                                                                                font-size: 0.95rem;
+                                                                                                                                                                    background-color: #f9fbfd;
+                                                                                                                                                                        outline: none;
+                                                                                                                                                                        }
 
-      .card-chat { display: flex; flex-direction: column; gap: 10px; }
-      .chat-logs { background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; max-height: 120px; overflow-y: auto; }
-      .msg { font-size: 0.85rem; margin-bottom: 4px; color: #334155; }
-      .msg.sistema { color: #94a3b8; font-style: italic; }
-      .input-chat-box { display: flex; gap: 8px; }
-      .input-chat-box input { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.85rem; }
-      .btn-enviar { padding: 10px 16px; background: #001e50; color: white; border: none; border-radius: 6px; font-weight: 700; font-size: 0.85rem; }
+                                                                                                                                                                        input[type="text"]:focus,
+                                                                                                                                                                        select:focus,
+                                                                                                                                                                        textarea:focus {
+                                                                                                                                                                            border-color: #0088ff;
+                                                                                                                                                                                background-color: #fff;
+                                                                                                                                                                                }
 
-      /* =========================================================
-         2. ESTILOS DO PAINEL DE CONTROLE (DARK MODE)
-            ========================================================= */
-            body.body-cco { background-color: #081226; color: #f1f5f9; padding: 25px; min-height: 100vh; }
-            .cco-container { max-width: 1200px; margin: 0 auto; }
+                                                                                                                                                                                /* --- GRID PARA CAMPOS LADO A LADO --- */
+                                                                                                                                                                                .form-row {
+                                                                                                                                                                                    display: flex;
+                                                                                                                                                                                        gap: 12px;
+                                                                                                                                                                                            width: 100%;
+                                                                                                                                                                                            }
 
-            .cco-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #1e293b; }
-            .cco-header h1 { font-size: 1.8rem; color: #ffffff; font-weight: 800; letter-spacing: 0.5px; }
-            .cco-header h1 span { color: #00a3e0; }
-            .live-indicator { background: #10b981; color: #042f2e; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+                                                                                                                                                                                            .form-row .form-group {
+                                                                                                                                                                                                flex: 1;
+                                                                                                                                                                                                }
 
-            .dash-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 35px; }
-            .metric-card { background: #111c35; padding: 22px 15px; border-radius: 12px; border: 1px solid #1e293b; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-            .metric-card h3 { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; font-weight: 700; }
-            .metric-card .number { font-size: 2.2rem; font-weight: 800; color: #38bdf8; }
+                                                                                                                                                                                                /* RESPONSIVIDADE PARA CELULAR: Empilha em telas pequenas */
+                                                                                                                                                                                                @media (max-width: 480px) {
+                                                                                                                                                                                                    .form-row {
+                                                                                                                                                                                                            flex-direction: column;
+                                                                                                                                                                                                                    gap: 0;
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                        }
 
-            .table-container { background: #111c35; border-radius: 12px; border: 1px solid #1e293b; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-            .table-container h2 { font-size: 1.25rem; margin-bottom: 20px; color: #f8fafc; font-weight: 700; border-bottom: 1px solid #1e293b; padding-bottom: 12px; }
+                                                                                                                                                                                                                        /* --- BOTÕES --- */
+                                                                                                                                                                                                                        .btn-primary {
+                                                                                                                                                                                                                            width: 100%;
+                                                                                                                                                                                                                                padding: 14px;
+                                                                                                                                                                                                                                    background-color: #00a8ff;
+                                                                                                                                                                                                                                        color: white;
+                                                                                                                                                                                                                                            border: none;
+                                                                                                                                                                                                                                                border-radius: 6px;
+                                                                                                                                                                                                                                                    font-weight: bold;
+                                                                                                                                                                                                                                                        font-size: 1rem;
+                                                                                                                                                                                                                                                            cursor: pointer;
+                                                                                                                                                                                                                                                                margin-bottom: 10px;
+                                                                                                                                                                                                                                                                    text-transform: uppercase;
+                                                                                                                                                                                                                                                                    }
 
-            .table-responsive { overflow-x: auto; }
-            .cco-table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
-            .cco-table th { background: #0b132b; color: #94a3b8; padding: 14px 16px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; border-bottom: 2px solid #1e293b; }
-            .cco-table td { padding: 16px; border-bottom: 1px solid #1e293b; font-size: 0.95rem; color: #e2e8f0; vertical-align: middle; }
-            .cco-table tr:last-child td { border-bottom: none; }
-            .cco-table tr:hover td { background-color: #172554; }
-
-            .badge-pnae { background: #0284c7; color: #ffffff; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
-            .status-tag { padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; color: white; display: inline-block; text-align: center; }
-            
+                                                                                                                                                                                                                                                                    .btn-secondary {
+                                                                                                                                                                                                                                                                        width: 100%;
+                                                                                                                                                                                                                                                                            padding: 14px;
+                                                                                                                                                                                                                                                                                background-color: #e2e8f0;
+                                                                                                                                                                                                                                                                                    color: #333;
+                                                                                                                                                                                                                                                                                        border: none;
+                                                                                                                                                                                                                                                                                            border-radius: 6px;
+                                                                                                                                                                                                                                                                                                font-weight: bold;
+                                                                                                                                                                                                                                                                                                    font-size: 0.9rem;
+                                                                                                                                                                                                                                                                                                        cursor: pointer;
+                                                                                                                                                                                                                                                                                                            text-transform: uppercase;
+                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                            
