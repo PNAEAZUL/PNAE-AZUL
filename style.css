@@ -1,127 +1,118 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
 * {
-    box-sizing: border-box; /* Impede que os campos ultrapassem a tela */
         margin: 0;
             padding: 0;
-            }
+                box-sizing: border-box;
+                    font-family: Arial, sans-serif;
+                    }
 
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background-color: #f4f6f9;
-                        color: #333;
-                            padding: 15px;
-                                display: flex;
-                                    justify-content: center;
-                                    }
+                    body {
+                        background-color: #f4f6f9;
+                            color: #333;
+                                padding: 20px;
+                                }
 
-                                    .container {
-                                        width: 100%;
-                                            max-width: 600px; /* Largura ideal para computador/tablet */
-                                                margin: 0 auto;
-                                                }
+                                .container {
+                                    max-width: 600px;
+                                        margin: 0 auto;
+                                            background: #ffffff;
+                                                padding: 30px;
+                                                    border-radius: 8px;
+                                                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                                                        }
 
-                                                /* --- CABEÇALHO --- */
-                                                .header {
-                                                    background-color: #002855;
-                                                        color: #fff;
-                                                            padding: 15px;
-                                                                border-radius: 8px;
-                                                                    display: flex;
-                                                                        justify-content: space-between;
-                                                                            align-items: center;
-                                                                                margin-bottom: 20px;
-                                                                                }
+                                                        header {
+                                                            text-align: center;
+                                                                margin-bottom: 25px;
+                                                                }
 
-                                                                                /* --- CARTÕES DE CONTEÚDO --- */
-                                                                                .card {
-                                                                                    background: #ffffff;
-                                                                                        padding: 20px;
-                                                                                            border-radius: 10px;
-                                                                                                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-                                                                                                    margin-bottom: 20px;
-                                                                                                        width: 100%;
+                                                                header h1 {
+                                                                    font-size: 24px;
+                                                                        color: #003366;
+                                                                            margin-bottom: 5px;
+                                                                            }
+
+                                                                            header p {
+                                                                                color: #666;
+                                                                                    font-size: 14px;
+                                                                                    }
+
+                                                                                    .campo {
+                                                                                        margin-bottom: 15px;
+                                                                                        }
+
+                                                                                        .campo label {
+                                                                                            display: block;
+                                                                                                font-weight: bold;
+                                                                                                    margin-bottom: 5px;
+                                                                                                        color: #444;
                                                                                                         }
 
-                                                                                                        /* --- FORMULÁRIO E INPUTS RESPONSIVOS --- */
-                                                                                                        .form-group {
-                                                                                                            margin-bottom: 15px;
-                                                                                                                width: 100%;
-                                                                                                                }
+                                                                                                        .campo input, .campo select {
+                                                                                                            width: 100%;
+                                                                                                                padding: 10px;
+                                                                                                                    border: 1px solid #ccc;
+                                                                                                                        border-radius: 4px;
+                                                                                                                            font-size: 14px;
+                                                                                                                            }
 
-                                                                                                                .form-group label {
-                                                                                                                    display: block;
-                                                                                                                        font-weight: bold;
-                                                                                                                            font-size: 0.85rem;
-                                                                                                                                color: #002855;
-                                                                                                                                    margin-bottom: 5px;
-                                                                                                                                        text-transform: uppercase;
+                                                                                                                            .campo-duplo {
+                                                                                                                                display: flex;
+                                                                                                                                    gap: 15px;
+                                                                                                                                    }
+
+                                                                                                                                    .campo-duplo .campo {
+                                                                                                                                        flex: 1;
                                                                                                                                         }
 
-                                                                                                                                        /* Garante que NENHUM campo estoure a tela */
-                                                                                                                                        input[type="text"],
-                                                                                                                                        select,
-                                                                                                                                        textarea {
-                                                                                                                                            width: 100% !important;
-                                                                                                                                                max-width: 100% !important;
-                                                                                                                                                    padding: 12px;
-                                                                                                                                                        border: 1px solid #ccc;
-                                                                                                                                                            border-radius: 6px;
-                                                                                                                                                                font-size: 0.95rem;
-                                                                                                                                                                    background-color: #f9fbfd;
-                                                                                                                                                                        outline: none;
-                                                                                                                                                                        }
+                                                                                                                                        .botoes-grupo {
+                                                                                                                                            display: flex;
+                                                                                                                                                flex-direction: column;
+                                                                                                                                                    gap: 10px;
+                                                                                                                                                        margin-top: 20px;
+                                                                                                                                                        }
 
-                                                                                                                                                                        input[type="text"]:focus,
-                                                                                                                                                                        select:focus,
-                                                                                                                                                                        textarea:focus {
-                                                                                                                                                                            border-color: #0088ff;
-                                                                                                                                                                                background-color: #fff;
-                                                                                                                                                                                }
+                                                                                                                                                        .btn {
+                                                                                                                                                            width: 100%;
+                                                                                                                                                                padding: 12px;
+                                                                                                                                                                    border: none;
+                                                                                                                                                                        border-radius: 4px;
+                                                                                                                                                                            font-size: 16px;
+                                                                                                                                                                                font-weight: bold;
+                                                                                                                                                                                    cursor: pointer;
+                                                                                                                                                                                        transition: background 0.2s;
+                                                                                                                                                                                        }
 
-                                                                                                                                                                                /* --- GRID PARA CAMPOS LADO A LADO --- */
-                                                                                                                                                                                .form-row {
-                                                                                                                                                                                    display: flex;
-                                                                                                                                                                                        gap: 12px;
-                                                                                                                                                                                            width: 100%;
-                                                                                                                                                                                            }
-
-                                                                                                                                                                                            .form-row .form-group {
-                                                                                                                                                                                                flex: 1;
+                                                                                                                                                                                        .btn-sucesso {
+                                                                                                                                                                                            background-color: #28a745;
+                                                                                                                                                                                                color: white;
                                                                                                                                                                                                 }
 
-                                                                                                                                                                                                /* RESPONSIVIDADE PARA CELULAR: Empilha em telas pequenas */
-                                                                                                                                                                                                @media (max-width: 480px) {
-                                                                                                                                                                                                    .form-row {
-                                                                                                                                                                                                            flex-direction: column;
-                                                                                                                                                                                                                    gap: 0;
-                                                                                                                                                                                                                        }
+                                                                                                                                                                                                .btn-sucesso:hover {
+                                                                                                                                                                                                    background-color: #218838;
+                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                    .btn-alerta {
+                                                                                                                                                                                                        background-color: #ffc107;
+                                                                                                                                                                                                            color: #333;
+                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                            .btn-alerta:hover {
+                                                                                                                                                                                                                background-color: #e0a800;
+                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                .link-painel {
+                                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                                        margin-top: 20px;
                                                                                                                                                                                                                         }
 
-                                                                                                                                                                                                                        /* --- BOTÕES --- */
-                                                                                                                                                                                                                        .btn-primary {
-                                                                                                                                                                                                                            width: 100%;
-                                                                                                                                                                                                                                padding: 14px;
-                                                                                                                                                                                                                                    background-color: #00a8ff;
-                                                                                                                                                                                                                                        color: white;
-                                                                                                                                                                                                                                            border: none;
-                                                                                                                                                                                                                                                border-radius: 6px;
-                                                                                                                                                                                                                                                    font-weight: bold;
-                                                                                                                                                                                                                                                        font-size: 1rem;
-                                                                                                                                                                                                                                                            cursor: pointer;
-                                                                                                                                                                                                                                                                margin-bottom: 10px;
-                                                                                                                                                                                                                                                                    text-transform: uppercase;
-                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                        .link-painel a {
+                                                                                                                                                                                                                            color: #0066cc;
+                                                                                                                                                                                                                                text-decoration: none;
+                                                                                                                                                                                                                                    font-weight: bold;
+                                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                                                    .btn-secondary {
-                                                                                                                                                                                                                                                                        width: 100%;
-                                                                                                                                                                                                                                                                            padding: 14px;
-                                                                                                                                                                                                                                                                                background-color: #e2e8f0;
-                                                                                                                                                                                                                                                                                    color: #333;
-                                                                                                                                                                                                                                                                                        border: none;
-                                                                                                                                                                                                                                                                                            border-radius: 6px;
-                                                                                                                                                                                                                                                                                                font-weight: bold;
-                                                                                                                                                                                                                                                                                                    font-size: 0.9rem;
-                                                                                                                                                                                                                                                                                                        cursor: pointer;
-                                                                                                                                                                                                                                                                                                            text-transform: uppercase;
-                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    .link-painel a:hover {
+                                                                                                                                                                                                                                        text-decoration: underline;
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                        
+}
