@@ -1,52 +1,67 @@
+// Configuração do Supabase
 const SUPABASE_URL = "https://dzfamogbogonwxgdpvbl.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_50Zeo1eoWIT7SJxvfA2W7A_N4Ls46kO";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// Função para Salvar Atendimento com as 9 colunas
 async function salvarAtendimento(status) {
-    // Pegando valores do HTML
-        const voo = document.getElementById("voo").value.trim();
-            const passageiro = document.getElementById("cliente").value.trim(); // Ajustado para 'passageiro'
-                const servico = document.getElementById("servico").value.trim();
-                    const origem = document.getElementById("origem").value.trim() || "N/A";
+    // Coleta dos campos do formulário
+        const novoAtendimento = {
+                agente: document.getElementById("agente")?.value.trim() || "",
+                        voo: document.getElementById("voo")?.value.trim() || "",
+                                cliente: document.getElementById("cliente")?.value.trim() || "",
+                                        servico: document.getElementById("servico")?.value.trim() || "",
+                                                origem: document.getElementById("origem")?.value.trim() || "",
+                                                        destino: document.getElementById("destino")?.value.trim() || "",
+                                                                status: status,
+                                                                        data: new Date().toLocaleDateString("pt-BR"),
+                                                                                hora: new Date().toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' })
+                                                                                    };
 
-                        const novoAtendimento = {
-                                voo: voo,
-                                        passageiro: passageiro, // Nome exato da coluna no seu Supabase
-                                                servico: servico,
-                                                        origem: origem,
-                                                                status: status
-                                                                    };
+                                                                                        try {
+                                                                                                const { error } = await supabaseClient
+                                                                                                            .from('atendimentos')
+                                                                                                                        .insert([novoAtendimento]);
 
-                                                                        try {
-                                                                                const { error } = await supabaseClient
-                                                                                            .from('atendimentos')
-                                                                                                        .insert([novoAtendimento]);
+                                                                                                                                if (error) {
+                                                                                                                                            console.error("Erro ao salvar:", error);
+                                                                                                                                                        alert("Erro ao salvar no banco: " + error.message);
+                                                                                                                                                                } else {
+                                                                                                                                                                            alert("Atendimento registrado com sucesso!");
+                                                                                                                                                                                        document.getElementById("form-atendimento")?.reset();
+                                                                                                                                                                                                    carregarAtendimentosDoSupabase();
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                                } catch (err) {
+                                                                                                                                                                                                                        console.error("Erro inesperado:", err);
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                            }
 
-                                                                                                                if (error) {
-                                                                                                                            console.error("Erro do Supabase:", error);
-                                                                                                                                        alert("Erro ao salvar: " + error.message);
-                                                                                                                                                } else {
-                                                                                                                                                            alert("Registrado na nuvem!");
-                                                                                                                                                                        carregarAtendimentosDoSupabase();
-                                                                                                                                                                                }
-                                                                                                                                                                                    } catch (err) {
-                                                                                                                                                                                            console.error("Erro de rede:", err);
-                                                                                                                                                                                                }
-                                                                                                                                                                                                }
+                                                                                                                                                                                                                            // Função de Carregamento (Busca do Banco)
+                                                                                                                                                                                                                            async function carregarAtendimentosDoSupabase() {
+                                                                                                                                                                                                                                try {
+                                                                                                                                                                                                                                        const { data, error } = await supabaseClient
+                                                                                                                                                                                                                                                    .from('atendimentos')
+                                                                                                                                                                                                                                                                .select('*')
+                                                                                                                                                                                                                                                                            .order('id', { ascending: false });
 
-                                                                                                                                                                                                async function carregarAtendimentosDoSupabase() {
-                                                                                                                                                                                                    try {
-                                                                                                                                                                                                            const { data, error } = await supabaseClient
-                                                                                                                                                                                                                        .from('atendimentos')
-                                                                                                                                                                                                                                    .select('*');
+                                                                                                                                                                                                                                                                                    if (error) throw error;
 
-                                                                                                                                                                                                                                            if (error) throw error;
-                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                            // Atualiza a interface com os dados reais do banco
-                                                                                                                                                                                                                                                                    console.log("Dados recebidos:", data);
-                                                                                                                                                                                                                                                                            // ... (resto da lógica de renderização)
-                                                                                                                                                                                                                                                                                } catch (err) {
-                                                                                                                                                                                                                                                                                        console.error("Erro ao buscar:", err);
-                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            // Atualiza a interface (certifique-se que o ID existe no seu HTML)
+                                                                                                                                                                                                                                                                                                    const container = document.getElementById("lista-atendimentos-patio");
+                                                                                                                                                                                                                                                                                                            if (container && data) {
+                                                                                                                                                                                                                                                                                                                        container.innerHTML = data.map(a => `
+                                                                                                                                                                                                                                                                                                                                        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 5px; border-radius: 4px;">
+                                                                                                                                                                                                                                                                                                                                                            <strong>Voo: ${a.voo}</strong> - Cliente: ${a.cliente}<br>
+                                                                                                                                                                                                                                                                                                                                                                                <small>Agente: ${a.agente} | Origem: ${a.origem} -> Destino: ${a.destino}</small><br>
+                                                                                                                                                                                                                                                                                                                                                                                                    <small>Status: ${a.status} | Data: ${a.data} ${a.hora}</small>
+                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                `).join('');
+                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                            } catch (err) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    console.error("Erro ao carregar do Supabase:", err);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        // Carregar ao abrir a página
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        document.addEventListener("DOMContentLoaded", carregarAtendimentosDoSupabase);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        
