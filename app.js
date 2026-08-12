@@ -1,4 +1,3 @@
-// Configuração do Supabase
 const SUPABASE_URL = "https://dzfamogbogonwxgdpvbl.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_50Zeo1eoWIT7SJxvfA2W7A_N4Ls46kO";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
