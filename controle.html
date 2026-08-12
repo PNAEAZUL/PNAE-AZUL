@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Painel de Controle - PNAE AZUL</title>
-                <link rel="stylesheet" href="style.css">
-                </head>
-                <body>
-                    <div class="mobile-header">
-                            <div class="brand">
-                                        <h1>PAINEL DE CONTROLE</h1>
-                                                    <p>Gerenciamento Geral de PNAE</p>
-                                                            </div>
-                                                                </div>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Painel de Controle PNAE - AZUL</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+     <div class="container-painel">
+      <header class="header-painel">
+       <h1>Painel de Controle em Tempo Real</h1>
+        <p>Sincronização automática de atendimentos PNAE</p>
+         </header>
 
-                                                                    <div class="container painel-container">
-                                                                            <header>
-                                                                                        <h2>Monitoramento de Operações</h2>
-                                                                                                    <p>Gerencie todos os chamados ativos, pendentes e concluídos</p>
-                                                                                                            </header>
+          <main id="listaAtivos" class="grid-atendimentos">
+           <p class="vazio">Carregando atendimentos do banco de dados...</p>
+            </main>
 
-                                                                                                                    <div class="metricas-painel">
-                                                                                                                                <div class="card-metrica">
-                                                                                                                                                <span id="stat-total">0</span>
-                                                                                                                                                                <p>Total Registrados</p>
-                                                                                                                                                                            </div>
-                                                                                                                                                                                        <div class="card-metrica">
-                                                                                                                                                                                                        <span id="stat-pendentes">0</span>
-                                                                                                                                                                                                                        <p>Pendentes</p>
-                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                <div class="card-metrica">
-                                                                                                                                                                                                                                                                <span id="stat-andamento">0</span>
-                                                                                                                                                                                                                                                                                <p>Em Curso</p>
-                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                    </div>
+             <div class="link-voltar">
+              <a href="index.html">← Voltar para o Formulário de Registro</a>
+               </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                            <div class="secao-card">
-                                                                                                                                                                                                                                                                                                                        <h3>Lista Geral de Atendimentos</h3>
-                                                                                                                                                                                                                                                                                                                                    <div id="tabela-controle-container">
-                                                                                                                                                                                                                                                                                                                                                    <p class="lista-vazia">Carregando dados operacionais...</p>
-                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                        </div>
-
-                                                                                                                                                                                                                                                                                                                                                                                <div class="botoes-grupo">
-                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn btn-perigo" onclick="limparDados()">Limpar Todos os Dados</button>
-                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-
-                                                                                                                                                                                                                                                                                                                                                                                                            <div class="link-painel">
-                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="index.html">← Voltar para Registro de Atendimento</a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <script src="app.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                        </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                        </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                 <!-- BIBLIOTECA DO SUPABASE E SCRIPT PRINCIPAL -->
+                  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+                   <script src="app.js"></script>
+                   </body>
+                   </html>
